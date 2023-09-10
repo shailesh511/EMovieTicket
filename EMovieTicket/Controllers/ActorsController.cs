@@ -13,8 +13,8 @@ namespace EMovieTicket.Controllers
         }
         public IActionResult Index()
         {
-            var avtorList = _appdbContext.Actors.ToList();
-            return View();
+            var actorList = _appdbContext.Actors.ToList();
+            return View(actorList);
         }
     }
 }

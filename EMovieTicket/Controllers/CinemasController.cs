@@ -12,7 +12,7 @@ namespace EMovieTicket.Controllers
 
         public CinemasController(AppdbContext appdbContext)
         {
-            _appdbContext = appdbContext;
+            _appdbContext = appdbContext;  
         }
         public async Task<IActionResult> Index()
         {
