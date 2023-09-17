@@ -15,7 +15,7 @@ namespace EMovieTicket.Controllers
         public IActionResult Index()
         {
             var ProducerList = _appdbContext.Producers.ToList();
-            return View();
+            return View("Index",ProducerList);
         }
     }
 }
