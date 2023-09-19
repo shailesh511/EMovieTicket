@@ -1,4 +1,5 @@
 ﻿using EMovieTicket.Data;
+using EMovieTicket.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -6,14 +7,14 @@ namespace EMovieTicket.Controllers
 {
     public class ActorsController : Controller
     {
-        public readonly AppdbContext _appdbContext;
-        public ActorsController(AppdbContext appdbContext)
+        public readonly IActorsService _actorsService;
+        public ActorsController(IActorsService actorsService)
         {
-            _appdbContext = appdbContext;
+            _actorsService= actorsService;
         }
         public IActionResult Index()
         {
-            var actorList = _appdbContext.Actors.ToList();
+            var actorList = _actorsService.GetAll();
             return View(actorList);
         }
     }

@@ -1,4 +1,5 @@
 using EMovieTicket.Data;
+using EMovieTicket.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,7 @@ namespace EMovieTicket
         {
             //DbContext configuration 
             services.AddDbContext<AppdbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
-            
+            services.AddScoped<IActorsService, ActorsService>();
 
             services.AddControllersWithViews();
         }
