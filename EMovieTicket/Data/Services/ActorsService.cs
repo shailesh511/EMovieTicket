@@ -2,11 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EMovieTicket.Data.Services
 {
     public class ActorsService : IActorsService
-    {
+    { 
 
         private readonly AppdbContext _appdbContext;
         public ActorsService(AppdbContext appdbContext)
@@ -23,9 +24,9 @@ namespace EMovieTicket.Data.Services
             throw new System.NotImplementedException();
         }
 
-        IEnumerable<Actor> IActorsService.GetAll()
+         async Task<IEnumerable<Actor>> IActorsService.GetAll()
         {
-           var a = _appdbContext.Actors.ToList();
+           var a = await _appdbContext.Actors.ToListAsync();
             return a;
         }
 

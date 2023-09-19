@@ -2,6 +2,7 @@
 using EMovieTicket.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EMovieTicket.Controllers
 {
@@ -12,9 +13,9 @@ namespace EMovieTicket.Controllers
         {
             _actorsService= actorsService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var actorList = _actorsService.GetAll();
+            var actorList = await _actorsService.GetAll();
             return View(actorList);
         }
     }
