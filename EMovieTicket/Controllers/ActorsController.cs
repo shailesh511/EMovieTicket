@@ -18,5 +18,9 @@ namespace EMovieTicket.Controllers
             var actorList = await _actorsService.GetAll();
             return View(actorList);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

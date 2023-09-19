@@ -28,6 +28,8 @@ namespace EMovieTicket
         {
             //DbContext configuration 
             services.AddDbContext<AppdbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            
+            //services
             services.AddScoped<IActorsService, ActorsService>();
 
             services.AddControllersWithViews();
