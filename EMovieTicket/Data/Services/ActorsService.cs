@@ -16,7 +16,8 @@ namespace EMovieTicket.Data.Services
         }
         void IActorsService.Add(Actor actor)
         {
-            throw new System.NotImplementedException();
+            _appdbContext.Actors.Add(actor);
+            _appdbContext.SaveChanges();
         }
 
         Actor IActorsService.Delete(int id)
