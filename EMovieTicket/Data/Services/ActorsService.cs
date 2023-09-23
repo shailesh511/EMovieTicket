@@ -33,7 +33,8 @@ namespace EMovieTicket.Data.Services
 
         Actor IActorsService.GetByID(int id)
         {
-            throw new System.NotImplementedException();
+          var actorDetails = _appdbContext.Actors.FirstOrDefault(a => a.Id == id);
+            return actorDetails;
         }
 
         Actor IActorsService.Update(int id, Actor newActor)

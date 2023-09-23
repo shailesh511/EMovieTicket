@@ -19,10 +19,12 @@ namespace EMovieTicket.Controllers
             var actorList = await _actorsService.GetAll();
             return View(actorList);
         }
+        //Get: Actors/Create 
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FullName,ProfilePictureURL,Bio")]Actor actor)
         {
@@ -32,6 +34,19 @@ namespace EMovieTicket.Controllers
             }
             _actorsService.Add(actor);
             return RedirectToAction(nameof(Index));
+        }
+
+
+        //Get: Actor/Details/1
+
+        public IActionResult Details(int  id)
+        {
+            var actorDetails = _actorsService.GetByID(id);
+            if (actorDetails!=null)
+            {
+                return View(actorDetails);
+            }
+            return View("No Data found");
         }
     }
 }
