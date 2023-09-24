@@ -48,5 +48,27 @@ namespace EMovieTicket.Controllers
             }
             return View("No Data found");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var actorDetails = _actorsService.GetByID(id);
+            if (actorDetails != null)
+            {
+                return View(actorDetails);
+            }
+            return View("No Data found");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            _actorsService.Update(id, actor);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

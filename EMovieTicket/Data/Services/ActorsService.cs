@@ -39,7 +39,12 @@ namespace EMovieTicket.Data.Services
 
         Actor IActorsService.Update(int id, Actor newActor)
         {
-            throw new System.NotImplementedException();
+            _appdbContext.Actors.Update(newActor);
+
+            _appdbContext.SaveChanges();
+            return newActor;
         }
+
+         
     }
 }
