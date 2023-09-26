@@ -22,7 +22,11 @@ namespace EMovieTicket.Data.Services
 
         Actor IActorsService.Delete(int id)
         {
-            throw new System.NotImplementedException();
+            Actor actor = _appdbContext.Actors.FirstOrDefault((a)=>a.Id== id);
+            var a =  _appdbContext.Actors.Remove(actor);
+            _appdbContext.SaveChanges();
+            return actor;
+
         }
 
          async Task<IEnumerable<Actor>> IActorsService.GetAll()

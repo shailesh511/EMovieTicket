@@ -70,5 +70,21 @@ namespace EMovieTicket.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult DefaultEditDetails(int id)
+        {
+            var actorDetails = _actorsService.GetByID(id);
+            if (actorDetails != null)
+            {
+                return View("~/Views/Actors/Edit.cshtml",actorDetails);
+            }
+            return View("No Data found");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            _actorsService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
