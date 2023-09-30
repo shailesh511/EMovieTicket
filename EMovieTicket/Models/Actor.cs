@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using EMovieTicket.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EMovieTicket.Models
 {
-    public class Actor
+    public class Actor:IEntityBase
     {
         [Key]
         public int Id { get; set; }
